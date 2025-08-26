@@ -1,0 +1,31 @@
+Generic null-safety rules for CMS-driven UI (apply to any field)
+Data is nullable by default
+Assume every CMS field (object, array, string, number) can be missing, null, or empty.
+Depth/populate may differ between envs; never rely on deep fields being present.
+Normalize at boundaries
+On fetch/adapters, map raw CMS data into a stable shape; return null for unusable values.
+Don’t pass possibly-null structures down the tree.
+Render-if-valid
+Only render a UI fragment when its required minimal data is present.
+Examples:
+Media: render only if value?.url is a non-empty string.
+Link/document: render only if doc?.file?.url is a non-empty string.
+Rich text: render only if typeof content === 'string' and content.trim() !== ''.
+Lists: render only if Array.isArray(items) && items.length > 0.
+Types reflect reality
+Model fields as unions with null/undefined.
+Prefer narrow, validated types in components (e.g., Props require already-normalized shapes).
+Tests mirror runtime
+Mocks must render elements only when the same validity checks pass.
+Include cases for: field missing, null object, empty string, empty array, valid value.
+Third‑party and test infra
+For ESM-only deps in Jest, use moduleNameMapper to a test-friendly mock or configure transforms.
+Fallbacks and UX
+If a section is optional, omit it entirely when invalid (no empty placeholders by default).
+If a placeholder is desired, render an explicit fallback node/text.
+Review checklist (for any PR touching CMS fields)
+Guards exist before dereferencing nested fields.
+Props to leaf components are normalized and non-null.
+Tests include null/missing/empty scenarios.
+Dev/prod build checked against real data.
+Example guard patterns
