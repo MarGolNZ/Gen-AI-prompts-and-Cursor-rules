@@ -1,0 +1,75 @@
+{
+  "name": "Storybook Documentation Standards",
+  "description": "Standards for creating consistent Storybook documentation across design system components",
+  "structure": {
+    "componentDescription": {
+      "description": "Clear, concise description of component purpose and functionality",
+      "required": true
+    },
+    "features": {
+      "description": "List of key features with bold headers and brief descriptions",
+      "format": "Bullet points with **Feature Name** : Description",
+      "required": true
+    },
+    "propsTable": {
+      "description": "Markdown table documenting all component props",
+      "columns": ["Prop", "Type", "Required", "Description"],
+      "required": true
+    },
+    "usageExamples": {
+      "description": "Multiple practical usage examples",
+      "types": [
+        {
+          "name": "Base Usage",
+          "description": "Simple, basic component usage",
+          "required": true
+        },
+        {
+          "name": "With Custom Styling",
+          "description": "Usage with sx props for styling",
+          "required": true
+        },
+        {
+          "name": "Advanced Usage",
+          "description": "Complex usage with multiple props",
+          "required": false
+        }
+      ]
+    },
+    "stylingSection": {
+      "description": "Explanation of how to customize different parts",
+      "format": "Bold headers for each customizable area",
+      "required": true
+    }
+  },
+  "principles": {
+    "language": "Use French for descriptions (following project conventions)",
+    "examples": "Keep examples practical and realistic",
+    "flexibility": "Show different use cases and configurations",
+    "hostControl": "Emphasize host control and flexibility",
+    "consistency": "Use consistent formatting and naming conventions",
+    "completeness": "Include all major props with clear descriptions",
+    "patterns": "Show both simple and complex usage patterns"
+  },
+  "codeQuality": {
+    "typescript": "Use proper TypeScript syntax in examples",
+    "realism": "Include realistic prop values",
+    "imports": "Show proper import statements when relevant",
+    "formatting": "Use consistent indentation and formatting",
+    "comments": "Include comments for complex examples"
+  },
+  "examples": {
+    "baseUsage": {
+      "description": "Simple component usage",
+      "template": "<ComponentName prop1=\"value\" prop2={value} />"
+    },
+    "customStyling": {
+      "description": "Usage with custom styling",
+      "template": "<ComponentName prop1=\"value\" sx={{ customStyle: 'value' }} />"
+    },
+    "advancedUsage": {
+      "description": "Complex usage with multiple props",
+      "template": "<ComponentName prop1=\"value\" customProp={complexValue} sx={{ advanced: 'styling' }} />"
+    }
+  }
+}

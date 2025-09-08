@@ -1,0 +1,26 @@
+{
+  "name": "React Component Testing Guidelines",
+  "description": "Enforce proper testing practices for React components",
+  "rules": [
+    "Always test actual functionality, not just element existence",
+    "Use explicit test IDs instead of DOM traversal",
+    "Test real CSS properties and theme integration",
+    "Avoid test workarounds - fix component issues instead",
+    "Test one specific behavior per test case",
+    "Include edge cases and error handling",
+    "Test component integration with complex content",
+    "Use descriptive test names and organization"
+  ],
+  "examples": {
+    "good": [
+      "expect(gridContainer).toHaveStyle('grid-template-columns: repeat(3, 1fr)')",
+      "expect(title).toHaveStyle('color: purple')",
+      "const gridContainer = screen.getByTestId('product-grid-section-grid')"
+    ],
+    "bad": [
+      "expect(gridContainer).toBeInTheDocument()",
+      "const gridContainer = container.querySelector('[style*=\"grid\"]')",
+      "expect(title).toHaveStyle('font-weight: bold') // Use '700' instead"
+    ]
+  }
+}

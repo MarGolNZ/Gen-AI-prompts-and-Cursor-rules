@@ -1,0 +1,45 @@
+{
+  "name": "MR Message Guidelines",
+  "description": "Generate concise, focused MR messages that highlight business value",
+  "rules": [
+    {
+      "section": "Structure",
+      "guidelines": [
+        "Title: Brief action + what was added",
+        "Summary: 2-3 lines max", 
+        "Components: List with brief descriptions",
+        "Technical: Key implementation details",
+        "Objective: Why this matters"
+      ]
+    },
+    {
+      "section": "Content Rules",
+      "guidelines": [
+        "✅ Focus on WHAT was built, not HOW",
+        "✅ Keep each section under 50 words",
+        "✅ Include use cases for each component",
+        "❌ No mention of tests, stories, or implementation details",
+        "❌ No technical jargon or code snippets"
+      ]
+    },
+    {
+      "section": "Format",
+      "guidelines": [
+        "Use bullet points for lists",
+        "Bold key terms",
+        "End with clear objective statement"
+      ]
+    },
+    {
+      "section": "Example Pattern",
+      "template": [
+        "[Action] + [Component Type]",
+        "[Brief summary]",
+        "[Component 1]: [Description] + [Use case]",
+        "[Component 2]: [Description] + [Use case]",
+        "[Key technical details]",
+        "[Clear objective]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Design System Component Development",
+  "description": "Guidelines for building reusable, configurable components in the design system",
+  "rules": [
+    {
+      "section": "Architecture & Structure",
+      "guidelines": [
+        "Create components in commons/ folder with project-specific prefix (e.g., 'Phe')",
+        "Use functional React components with TypeScript interfaces",
+        "Export via index files and main design system index"
+      ]
+    },
+    {
+      "section": "Component Design Principles",
+      "guidelines": [
+        "Single Responsibility: Each component should do one thing well",
+        "Configurability: Use props for layout, styling, and behavior options",
+        "Flexibility: Accept generic content via React.ReactNode when possible",
+        "Host Control: Let consuming applications handle content and styling decisions"
+      ]
+    },
+    {
+      "section": "Technical Requirements",
+      "guidelines": [
+        "MUI v6: Use modern components (Stack, Box, Typography) - avoid deprecated Grid",
+        "Styling: Provide sx props for all major elements, allow style overrides",
+        "Responsiveness: Use MUI breakpoints, but let host handle mobile logic",
+        "TypeScript: Comprehensive interfaces with optional props and sensible defaults"
+      ]
+    },
+    {
+      "section": "Content & Layout",
+      "guidelines": [
+        "No Hardcoded Content: Everything should be configurable via props",
+        "Flexible Positioning: Support left/right positioning, dynamic spacing",
+        "Grid Systems: Use CSS Grid with configurable columns, gaps, and behavior",
+        "Avoid Wrappers: Don't add redundant containers (Cards, Papers) unless specifically requested"
+      ]
+    },
+    {
+      "section": "Testing & Documentation",
+      "guidelines": [
+        "Jest Tests: Comprehensive testing with data-testid attributes for reliability",
+        "Storybook: Interactive examples with French documentation",
+        "No Workarounds: Fix actual component issues, don't create test workarounds"
+      ]
+    },
+    {
+      "section": "Naming & Organization",
+      "guidelines": [
+        "Descriptive Names: Clear, specific component names",
+        "Consistent Structure: Component folder → Component.tsx, index.ts, Component.stories.tsx, Component.spec.tsx",
+        "Project Prefix: All components should be project-specific (e.g., PheProductImageSection)"
+      ]
+    },
+    {
+      "section": "Key Success Criteria",
+      "guidelines": [
+        "Components should be immediately usable without modification",
+        "All styling and behavior should be configurable",
+        "No assumptions about content or use case",
+        "Clean, maintainable code with proper error handling"
+      ]
+    }
+  ]
+}
