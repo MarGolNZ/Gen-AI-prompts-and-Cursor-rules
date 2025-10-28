@@ -1,0 +1,31 @@
++## Backend error handling (Payload/Node)
++
++- No empty catch blocks
++  - Always log at least a warning with minimal context.
++  - Prefer `req.payload?.logger` when available; fallback to `console`.
++
++- Do not leak internals in production
++  - In `NODE_ENV === 'production'`, return generic messages (e.g., `Internal Server Error`).
++  - In non‑production, you may include a concise error string in the JSON response.
++
++- Log at the right level
++  - `warn`: recoverable issues (e.g., optional queries failing, partial data).
++  - `error`: unhandled errors that cause request failure.
++
++- Prefer structured JSON responses
++  - Non‑prod: `{ success: false, error: string }` with `Content-Type: application/json`.
++  - Prod: only the generic message and 5xx code.
++
++- Preserve flow when safe
++  - If an optional step fails (e.g., enriching data), log and continue with degraded response rather than failing the request.
++
++- Security & PII
++  - Never include stack traces, secrets, or user PII in responses.
++  - Stack traces are allowed only in logs (non‑prod preferred).
++
++- Consistency examples
++  - Use this pattern in catch blocks:
++    - log via `payload.logger` (ts-ignore if necessary), plus `console` fallback.
++    - conditional response content based on environment.
++
+*** End Patch
